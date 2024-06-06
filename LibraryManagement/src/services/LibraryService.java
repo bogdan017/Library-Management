@@ -117,7 +117,7 @@ public class LibraryService {
             throw new ReaderNotFoundException("Reader not found: " + readerId);
         }
 
-        // Issue the book and log the action
+        // imprumuta cartea si adauga un log in fisierul csv pentru actionarea imprumutului
         book.borrowItem(reader);
         borrowedBooks.add(new BorrowedBook(book, reader, LocalDate.now().toString(), LocalDate.now().plusDays(14).toString()));
         AuditService.logAction("issueBook");
